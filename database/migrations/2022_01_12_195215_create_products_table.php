@@ -17,10 +17,9 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('intro_description');
-            $table->string('full_description')->nullable();
-            $table->float('price');
-            $table->string('img')->nullable();
-            $table->foreignid('category_id')->constraint();
+            $table->string('full_description');
+            $table->float('price',8,2);
+            // $table->foreignids('category_id')->onUpdate('cascade')->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }
