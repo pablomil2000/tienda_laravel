@@ -1,4 +1,8 @@
-@extends('layouts.app')
+@extends('layout')
+
+@section('navbar')
+@include('components.navbar');
+@stop
 
 @section('content')
 <div class="container">
@@ -75,3 +79,7 @@
     </div>
 </div>
 @endsection
+
+@section('footer')
+@include('components.footer');
+@stop
