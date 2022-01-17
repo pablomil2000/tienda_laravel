@@ -28,7 +28,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // mostrar lista admin
 Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');
 // Crear producto admin
-Route::post('/admin/products/create', [ProductController::class, 'create'])->name('admin.products.create');
+Route::GET('/admin/products/create', [ProductController::class, 'create'])->name('admin.products.create');
 //Guardar producto admin
 Route::post('/admin/products', [ProductController::class, 'store'])->name('admin.products.store');
 
+Route::get('/admin/products/{id}/edit', [ProductController::class, 'edit'])->name('admin.products.edit');
+Route::post('/admin/products/{id}/edit', [ProductController::class, 'update'])->name('admin.products.update');
