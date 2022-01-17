@@ -30,7 +30,7 @@
     @yield('content')
 
     <!-- Testimonials-->
-    @yield('testimonials')
+    @yield('products')
 
     <!-- Footer-->
     @yield('footer')

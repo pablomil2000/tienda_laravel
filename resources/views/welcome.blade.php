@@ -8,7 +8,7 @@
     @include('components.header')
 @stop
 
-@section('testimonials')
+@section('products')
     @include('components.products')
 @stop
 

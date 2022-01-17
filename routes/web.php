@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,14 @@ Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// Crud
+
+// mostrar lista admin
+Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');
+// Crear producto admin
+Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin.products.create');
+//Guardar producto admin
+Route::POST('/admin/products', [ProductController::class, 'store'])->name('admin.products.store');
+
