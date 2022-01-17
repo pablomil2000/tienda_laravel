@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('navbar')
-    @include('components/navbar')
+    @include('components.navbar')
 @stop
 
 @section('header')
@@ -9,7 +9,7 @@
 @stop
 
 @section('testimonials')
-    @include('components.testimonials')
+    @include('components.products')
 @stop
 
 @section('footer')
