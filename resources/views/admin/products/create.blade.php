@@ -8,13 +8,31 @@
 @stop
 
 @section('content')
+<div class="container-lg">
     <h2>Alta de producto</h2>
-
-    <form>
+    <form method="POST">
+        @csrf
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        </div></form>
+            <p>Nombre</p>
+            <input type="text" class="form-control" name="nombre" id="name" placeholder="" value="{{ old('nombre') }}">
+            <p>Descripcion corta</p>
+            <input type="text" name="intro_description" class="form-control" id="intro_description" aria-describedby="emailHelp" placeholder="">
+            <p>Descripcion larga</p>
+            <textarea class="form-control" name="full_description" id="full_description" cols="60" rows="10"></textarea>
+            <p>Precio</p>
+            <input type="text" name="price" class="form-control" id="price aria-describedby="emailHelp" placeholder="">
+            <p>Categoria</p>
+            <select type="text" name="category" id="" class="form-control">
+                <option value="0">Sin categoria</option>
+            </select>
+            {{-- <input type="text" class="form-control" id="category" aria-describedby="emailHelp" placeholder=""> --}}
+            <br>
+            <p>
+                <input type="submit" class="btn btn-primary" value="Enviar">
+            </p>
+        </div>
+    </form>
+</div>
 
 @stop
 
