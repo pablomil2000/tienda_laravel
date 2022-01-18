@@ -11,7 +11,7 @@
     <div class="container-lg">
         {{-- {{ dd($product) }} --}}
         <h2>Alta de producto</h2>
-        <form action="{{ route('admin.products.update') }}" method="POST">
+        <form action="{{ Route('admin.products.update',$product) }}" method="POST">
             @csrf
             <div class="form-group">
                 <p>Nombre</p>

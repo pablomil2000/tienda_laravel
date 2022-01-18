@@ -41,8 +41,9 @@ class ProductController extends Controller
         return view('admin.products.edit', compact('product', 'categories'));
     }
     
-    public function update(Request $request){
-        $product = new Product();
+    public function update(Request $request, $id){
+        // $product = new Product();
+        $product=Product::find($id);
         $product->name = $request->input('nombre');
         $product->intro_description = $request->input('intro_description');
         $product->full_description = $request->input('full_description');
