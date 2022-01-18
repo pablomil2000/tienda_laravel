@@ -47,7 +47,7 @@
                             <td>{{ $product->category_id }}</td>
                             <td>{{ $product->price }}</td>
                             <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                {{-- <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> --}}
                                 <a href="{{ url('/admin/products/'.$product->id.'/edit') }}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                                 <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                             </td>
