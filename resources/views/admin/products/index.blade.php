@@ -21,9 +21,12 @@
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
-                        <div class="col-sm-8"><h2>Employee <b>Details</b></h2></div>
-                        <div class="col-sm-4">                        
-                            <a href="{{ route('admin.products.create') }}"><button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button></a>
+                        <div class="col-sm-8">
+                            <h2>Employee <b>Details</b></h2>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="{{ route('admin.products.create') }}"><button type="button"
+                                    class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button></a>
                         </div>
                     </div>
                 </div>
@@ -39,19 +42,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach( $products as $product)
-                        <tr>
-                            <td>{{ $product->id }}</td>
-                            <td>{{ $product->name }}</td>
-                            <td>{{ $product->intro_description }}</td>
-                            <td>{{ $product->category_id }}</td>
-                            <td>{{ $product->price }}</td>
-                            <td>
-                                {{-- <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> --}}
-                                <a href="{{ url('/admin/products/'.$product->id.'/edit') }}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>
+                        @foreach ($products as $product)
+                            <tr>
+                                <td>{{ $product->id }}</td>
+                                <td>{{ $product->name }}</td>
+                                <td>{{ $product->intro_description }}</td>
+                                <td>{{ $product->category_id }}</td>
+                                <td>{{ $product->price }}</td>
+                                <td>
+                                    <a href="{{ url('/admin/products/' . $product->id . '/edit') }}" class="edit">
+                                        <i class="material-icons">&#xE254;</i>
+                                    </a>
+                                    {{-- <a href="{{ url('/admin/products/'.$product->id.'/delete') }}" class="delete">
+                                        <i class="material-icons">&#xE872;</i>
+                                    </a> --}}
+                                    <form action="{{ url('/admin/products/'.$product->id) }}" method="post">
+                                        @csrf
+                                        {{ method_field('DELETE') }}
+                                        <button type="submit" class="btn btn btn-xs" title="Borrar producto" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></button>
+                                    </form>
+
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -60,4 +72,3 @@
         </div>
     </div>
 @stop
-

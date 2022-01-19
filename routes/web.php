@@ -34,3 +34,7 @@ Route::post('/admin/products', [ProductController::class, 'store'])->name('admin
 
 Route::get('/admin/products/{id}/edit', [ProductController::class, 'edit'])->name('admin.products.edit');
 Route::post('/admin/products/{id}/edit', [ProductController::class, 'update'])->name('admin.products.update');
+
+// Route::get('/admin/products/{id}/delete', [ProductController::class, 'destroy'])->name('admin.products.delete');
+// Route::POST('/admin/products/{id}/delete', [ProductController::class, 'destroy'])->name('admin.products.delete');
+Route::delete('/admin/products/{id}', [ProductController::class, 'destroy'])->name('admin.products.delete');

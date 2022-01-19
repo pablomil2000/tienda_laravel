@@ -54,4 +54,10 @@ class ProductController extends Controller
         echo "<h1>update</h1>";
         // return redirect(Route('admin.products.index'));
     }
+
+    Public function destroy($id){
+        $product = Product::find($id);
+        $product->delete();
+        return back();
+    }
 }
