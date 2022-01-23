@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\ProductImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +40,14 @@ Route::post('/admin/products/{id}/edit', [ProductController::class, 'update'])->
 // Route::get('/admin/products/{id}/delete', [ProductController::class, 'destroy'])->name('admin.products.delete');
 // Route::POST('/admin/products/{id}/delete', [ProductController::class, 'destroy'])->name('admin.products.delete');
 Route::delete('/admin/products/{id}', [ProductController::class, 'destroy'])->name('admin.products.delete');
+
+
+
+
+// Route::get("/admin/products/{id}/imagenes", [WelcomeController::class, 'welcome'])->name("images.index");
+
+Route::get("/admin/products/{id}/imagenes", [ProductImageController::class ,"index"])->name("images.index");    //ver
+Route::post("/admin/products/{id}/imagenes", [ProductImageController::class ,"store"])->name("images.index");   //subir
+Route::delete("/admin/products/{id}/imagenes", [ImageController::class ,"destroy"])->name("images.destroy");    //delete
+
+Route::get('/admin/product/{product_id}/images/select/{id}', [ProductImageController::class, 'select']);                         //destacar imagen

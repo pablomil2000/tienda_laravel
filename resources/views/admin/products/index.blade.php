@@ -53,6 +53,11 @@
                                     <a href="{{ url('/admin/products/' . $product->id . '/edit') }}" class="edit">
                                         <i class="material-icons">&#xE254;</i>
                                     </a>
+
+                                    <a href="{{ url('/admin/products/'.$product->id . '/imagenes') }}" class="succes">
+                                        <i class="material-icons">image</i>
+                                    </a>
+
                                     {{-- <a href="{{ url('/admin/products/'.$product->id.'/delete') }}" class="delete">
                                         <i class="material-icons">&#xE872;</i>
                                     </a> --}}
