@@ -4,9 +4,9 @@
     @include('components.navbar')
 @stop
 
-@section('header')
+{{-- @section('header')
     @include('components.header')
-@stop
+@stop --}}
 
 @section('products')
     @include('components.products')

@@ -22,7 +22,7 @@ Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [WelcomeController::class, 'welcome'])->name('home');
 
 
 // Crud

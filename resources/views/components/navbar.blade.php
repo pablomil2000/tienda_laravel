@@ -11,6 +11,9 @@
                 <a class="btn btn-primary" href="{{ route('register') }}">{{ __('Register') }}</a>
             @endif
         @else
+        <li class="nav-item dropdown">
+            <a class="btn btn-primary" href="{{ Route('admin.products.index') }}" role="button"data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Admin</a>
+        </li>
             <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="btn btn-primary dropdown-toggle" href="#" role="button"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

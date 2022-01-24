@@ -1,6 +1,6 @@
 <section class="testimonials text-center bg-light">
     <div class="container">
-        <h2 class="mb-5">What people are saying...</h2>
+        <h2 class="mb-5">Productos</h2>
         <div class="row">
             @foreach ($products as $product)
             {{-- {{ var_dump($product->productimages->first()) }} --}}
