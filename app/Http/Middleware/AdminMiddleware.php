@@ -17,11 +17,11 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (!auth()->check()) {
-            return $next('/login');
+            return $next('/home');
         }
 
         if (!auth()->user()->admin) {
-            return redirect('/login');
+            return redirect('/home');
         }
 
         return $next($request);

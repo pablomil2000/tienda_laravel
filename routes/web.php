@@ -24,7 +24,7 @@ Auth::routes();
 
 Route::get('/home', [WelcomeController::class, 'welcome'])->name('home');
 
-Route::middleware(['admin'])->group(function(){
+Route::middleware(['auth','admin'])->group(function(){
     // Crud
     
     // mostrar lista admin

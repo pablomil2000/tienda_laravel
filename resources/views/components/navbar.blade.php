@@ -1,19 +1,12 @@
 <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-        <a class="navbar-brand" href="#!">Start Bootstrap</a>
+        <a class="navbar-brand" href="{{ Route('home') }}">Start Bootstrap</a>
 
         @guest
-            @if (Route::has('login'))
-                <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
-            @endif
-
-            @if (Route::has('register'))
-                <a class="btn btn-primary" href="{{ route('register') }}">{{ __('Register') }}</a>
-            @endif
+            <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
+            <a class="btn btn-primary" href="{{ route('register') }}">{{ __('Register') }}</a>
         @else
-        <li class="nav-item dropdown">
-            <a class="btn btn-primary" href="{{ Route('admin.products.index') }}" role="button"data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Admin</a>
-        </li>
+            <a class="btn btn-primary" href="{{ Route('admin.products.index') }}">Admin</a>
             <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="btn btn-primary dropdown-toggle" href="#" role="button"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -22,10 +15,9 @@
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                            document.getElementById('logout-form').submit();">
+                        document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
-
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
