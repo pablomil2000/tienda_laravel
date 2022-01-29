@@ -35,10 +35,10 @@ class ProductImageController extends Controller
     }
 
     public function select($id_product, $id_image){
-        ProductImage::where('product_id', $id_product)->update(['destacada' => false]);
+        ProductImage::where('product_id', $id_product)->update(['destacada' => false]);//todas las img en false
 
         $imagen = ProductImage::find($id_image);
-        $imagen->destacada = true;
+        $imagen->destacada = true;  //imagen destacadea true
         $imagen->save();
         
         return back();
