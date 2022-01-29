@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ImageController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\admin\ImageController;
 use App\Http\Controllers\ProductImageController;
+use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\ProductController as ProductControllerPublic;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +18,15 @@ use App\Http\Controllers\ProductImageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
-
 Auth::routes();
 
+Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
 Route::get('/home', [WelcomeController::class, 'welcome'])->name('home');
 
-Route::middleware(['auth','admin'])->group(function(){
+
+Route::get('/products/{id}', [ProductControllerPublic::class, 'show']);
+
+Route::middleware(['auth','admin'])->namespace('admin')->group(function(){
     // Crud
     // mostrar lista admin
     Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');
