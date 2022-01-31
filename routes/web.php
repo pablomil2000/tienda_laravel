@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\CartDetailController;
 use App\Http\Controllers\admin\ImageController;
 use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\admin\ProductController;
@@ -22,9 +23,9 @@ Auth::routes();
 
 Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
 Route::get('/home', [WelcomeController::class, 'welcome'])->name('home');
-
-
 Route::get('/products/{id}', [ProductControllerPublic::class, 'show']);
+
+Route::post('/cart', [CartDetailController::class, 'store']);
 
 Route::middleware(['auth','admin'])->namespace('admin')->group(function(){
     // Crud

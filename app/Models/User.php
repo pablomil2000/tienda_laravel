@@ -10,6 +10,24 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+
+    public function carts(){
+        return $this->hasMany(Cart::class);
+    }
+
+    public function getIdCarritoAttribute(){
+        $carrito = $this->carts()->where('estado', 'activo')->first();
+        if ($carrito) {
+            return $carrito->id;
+        }
+        $carrito = new Cart();
+        $carrito->estado ='activo';
+        $carrito->user_id = $this->id;
+        $carrito->save();
+
+        return $carrito->id;
+    }
+
     use HasApiTokens, HasFactory, Notifiable;
 
     /**

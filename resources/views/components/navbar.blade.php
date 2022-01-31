@@ -5,11 +5,13 @@
         @guest
             <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
             <a class="btn btn-primary" href="{{ route('register') }}">{{ __('Register') }}</a>
+            
         @else
             @auth
 
                 @if (auth()->user()->admin)
                     <a class="btn btn-primary" href="{{ Route('admin.products.index') }}">Admin</a>
+                
                 @endif
             <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="btn btn-primary dropdown-toggle" href="#" role="button"
