@@ -41,27 +41,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function carts(){
-        return $this->hasMany(Cart::class);
-    }
-
-    public function getIdCarritoAttribute() {
-        $carrito = $this->carts()->where('estado', 'activo')->first();
-
-        if($carrito){
-            return $carrito;
-        }
-
-        $cartito = new Cart();
-        $carrito = NULL;
-        
-        if (!isset($carrito)) 
-            $carrito = new Cart();
-
-        $carrito->estado = 'adctivo';
-        $carrito->user_id = $this->id;
-        $carrito->save();
-        return $carrito;
-    }
 }

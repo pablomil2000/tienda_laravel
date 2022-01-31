@@ -18,7 +18,7 @@
                             data-target="#myModal">Comprar</button>
                     @endif
 
-                    <a href="{{ route('home') }}"><button type="button"class="btn btn-outline-secondary">Volver</button></a>
+                    <a href="{{ route('home') }}"><button type="button"class="btn btn-outline-secondary">Secondary</button></a>
 
                 </div>
             </div>
