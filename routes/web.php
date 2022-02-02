@@ -9,23 +9,15 @@ use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\ProductController as ProductControllerPublic;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 Auth::routes();
 
 Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
 Route::get('/home', [WelcomeController::class, 'welcome'])->name('home');
 Route::get('/products/{id}', [ProductControllerPublic::class, 'show']);
 
-Route::post('/cart', [CartDetailController::class, 'store']);
+Route::post('/carrito', [CartDetailController::class, 'index'])->name('carrito.index');
+Route::post('/cart', [CartDetailController::class, 'store'])->name('carrito.store');
 
 Route::middleware(['auth','admin'])->namespace('admin')->group(function(){
     // Crud

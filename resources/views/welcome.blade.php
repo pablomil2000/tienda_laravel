@@ -4,9 +4,9 @@
     @include('components.navbar')
 @stop
 
-{{-- @section('header')
+@section('header')
     @include('components.header')
-@stop --}}
+@stop
 
 @section('products')
     @include('components.products')
@@ -15,3 +15,4 @@
 @section('footer')
     @include('components.footer')
 @stop
+

@@ -15,12 +15,10 @@ class CreateCartsTable extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha_pedido')->nullable();
-            $table->date('fecha_entrega')->nullable();
-            $table->string('estado');
-            $table->foreignId('user_id')
-                ->constrained()
-                ->onDelete('cascade');
+            $table->date("fecha_pedido")->nullable();
+            $table->date("fecha_entrega")->nullable();
+            $table->string("estado")->default("activo");
+            $table->foreignId("user_id")->constrained()->onUpdate("cascade")->onDelete("cascade");
             $table->timestamps();
         });
     }

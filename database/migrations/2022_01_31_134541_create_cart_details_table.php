@@ -15,14 +15,10 @@ class CreateCartDetailsTable extends Migration
     {
         Schema::create('cart_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cart_id')
-                ->constrained()
-                ->onDelete('cascade');
-            $table->foreignId('product_id')
-                ->constrained()
-                ->onDelete('cascade');
-            $table->integer('cantidad');
-            $table->integer('descuento')->default(0);
+            $table->foreignId("cart_id")->constrained()->onUpdate("cascade")->onDelete("cascade");
+            $table->foreignId("product_id")->constrained()->onUpdate("cascade")->onDelete("cascade");
+            $table->integer("cantidad");
+            $table->integer("descuento")->default(0);
             $table->timestamps();
         });
     }

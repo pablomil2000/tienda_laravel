@@ -15,17 +15,18 @@ class User extends Authenticatable
         return $this->hasMany(Cart::class);
     }
 
-    public function getIdCarritoAttribute(){
+    public function getCarritoAttribute(){
         $carrito = $this->carts()->where('estado', 'activo')->first();
-        if ($carrito) {
-            return $carrito->id;
-        }
+
+        if($carrito) 
+            return $carrito;
+
         $carrito = new Cart();
-        $carrito->estado ='activo';
+        $carrito->estado = "activo";
         $carrito->user_id = $this->id;
         $carrito->save();
 
-        return $carrito->id;
+        return $carrito;
     }
 
     use HasApiTokens, HasFactory, Notifiable;
