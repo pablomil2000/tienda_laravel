@@ -9,7 +9,7 @@
 @stop --}}
 
 @section('products')
-    @include('components.products')
+    @include('components.carrito')
 @stop
 
 @section('footer')

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CartDetailController;
 use App\Http\Controllers\admin\ImageController;
@@ -16,8 +17,15 @@ Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
 Route::get('/home', [WelcomeController::class, 'welcome'])->name('home');
 Route::get('/products/{id}', [ProductControllerPublic::class, 'show']);
 
-Route::post('/carrito', [CartDetailController::class, 'index'])->name('carrito.index');
-Route::post('/cart', [CartDetailController::class, 'store'])->name('carrito.store');
+Route::middleware(['auth'])->group(function(){
+    Route::get('/cart', [WelcomeController::class, 'index'])->name('carrito');
+    Route::get('/order', [CartController::class, 'update'])->name('pedido');
+    Route::post('/cart', [CartDetailController::class, 'store'])->name('carrito.store');
+
+    Route::get('/cart/{id}/delete', [CartDetailController::class, 'delete']);
+    
+});
+
 
 Route::middleware(['auth','admin'])->namespace('admin')->group(function(){
     // Crud

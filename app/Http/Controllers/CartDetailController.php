@@ -22,4 +22,16 @@ class CartDetailController extends Controller
 
         return back()->with(compact("aviso"));
     }
+
+    public function delete($id){
+        $linea = CartDetail::find($id);
+        if ($linea) {
+            if ($linea->cart_id == auth()->user()->carrito->id) {
+                $linea->delete();
+                $aviso="Producto eliminado";
+                return back()-> with(compact("aviso"));
+            }
+        }
+        return back();
+    }
 }

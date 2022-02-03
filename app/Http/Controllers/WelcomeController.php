@@ -12,4 +12,10 @@ class WelcomeController extends Controller
         $products = Product::paginate(6);
         return view('Welcome', compact('products'));
     }
+
+    public function index(){
+
+        // $products = Product::paginate(6);
+        return view('carrito');
+    }
 }
