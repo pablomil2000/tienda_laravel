@@ -17,6 +17,7 @@
         type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -24,7 +25,7 @@
     <!-- Navigation-->
     @yield('navbar')
     <!-- Masthead-->
-    @yield('header')
+    @yield('busqueda')
 
     <!-- contenido -->
     @yield('content')
@@ -43,6 +44,28 @@
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+    <script src="{{ asset('js/typeahead.bundle.js') }}"></script>
+
+    <script>
+        $(function() {
+
+            var products = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizer.whitespace,
+                queryTokenizer: Bloodhound.tokenizer.whitespace,
+                local: ['javi', 'juan', 'paco', 'kimi']
+            });
+
+            $('#bloodhound .typeahead').typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+            }, {
+                name: 'products',
+                source: product
+            });
+        })
+    </script>
 </body>
 
 </html>
